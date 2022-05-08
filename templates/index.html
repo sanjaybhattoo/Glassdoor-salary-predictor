@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+ <div>
+	
+	</div>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Rating" placeholder="Rating i.e. 1.0-5.0" required="required" />
+      <input type="text" name="Size" placeholder="Number of employees i.e. 1-10000" required="required" />
+      <input type="text" name="Type of ownership" placeholder="1.0 :private , 2.0: public , 3.0 : government ,others :4.0" required="required" />
+      <input type="text" name="Sector" placeholder="Sector IT : 1 , Oil : 2 , Government : 3 , Realestate : 4  ,ohters : 5" required="required" />
+      <input type="text" name="Revenue" placeholder="Revenue in million dollars " required="required" />
+      <input type="text" name="empprovided" placeholder="employer provided salary : 1 else 0" required="required" />
+      <input type="text" name="state" placeholder="same state : 1 else 0)" required="required" />
+      <input type="text" name="Age" placeholder="Company age : " required="required" />
+     
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
